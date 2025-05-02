@@ -11,17 +11,16 @@
       service:
         name: apache2
         state: started
-
-    - name: Copy index.html to web server root
-      copy:
-        src: index.html
-        dest: /var/www/html/
-
+    
     - name: Ensure firewall is configured to allow HTTP traffic
       ufw:
         rule: allow
         port: 80
         proto: tcp
 
----
+    - name: Copy index.html to web server root
+      copy:
+        src: index.html
+        dest: /var/www/html/
 
+...
